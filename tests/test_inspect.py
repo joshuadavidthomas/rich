@@ -13,11 +13,6 @@ from rich._inspect import (
 )
 from rich.console import Console
 
-skip_py37 = pytest.mark.skipif(
-    sys.version_info.minor == 7 and sys.version_info.major == 3,
-    reason="rendered differently on py3.7",
-)
-
 skip_py38 = pytest.mark.skipif(
     sys.version_info.minor == 8 and sys.version_info.major == 3,
     reason="rendered differently on py3.8",
@@ -36,6 +31,16 @@ skip_py310 = pytest.mark.skipif(
 skip_py311 = pytest.mark.skipif(
     sys.version_info.minor == 11 and sys.version_info.major == 3,
     reason="rendered differently on py3.11",
+)
+
+skip_py312 = pytest.mark.skipif(
+    sys.version_info.minor == 12 and sys.version_info.major == 3,
+    reason="rendered differently on py3.12",
+)
+
+skip_py313 = pytest.mark.skipif(
+    sys.version_info.minor == 13 and sys.version_info.major == 3,
+    reason="rendered differently on py3.13",
 )
 
 skip_pypy3 = pytest.mark.skipif(
@@ -112,7 +117,6 @@ def test_inspect_text():
     assert render("Hello") == expected
 
 
-@skip_py37
 @skip_pypy3
 def test_inspect_empty_dict():
     expected = (
@@ -135,6 +139,8 @@ def test_inspect_empty_dict():
     assert render({}).startswith(expected)
 
 
+@skip_py313
+@skip_py312
 @skip_py311
 @skip_pypy3
 def test_inspect_builtin_function_except_python311():
@@ -209,9 +215,10 @@ def test_inspect_integer_with_value():
     assert value == expected
 
 
-@skip_py37
 @skip_py310
 @skip_py311
+@skip_py312
+@skip_py313
 def test_inspect_integer_with_methods_python38_and_python39():
     expected = (
         "╭──────────────── <class 'int'> ─────────────────╮\n"
@@ -245,10 +252,11 @@ def test_inspect_integer_with_methods_python38_and_python39():
     assert render(1, methods=True) == expected
 
 
-@skip_py37
 @skip_py38
 @skip_py39
 @skip_py311
+@skip_py312
+@skip_py313
 def test_inspect_integer_with_methods_python310only():
     expected = (
         "╭──────────────── <class 'int'> ─────────────────╮\n"
@@ -286,11 +294,12 @@ def test_inspect_integer_with_methods_python310only():
     assert render(1, methods=True) == expected
 
 
-@skip_py37
 @skip_py38
 @skip_py39
 @skip_py310
-def test_inspect_integer_with_methods_python311_and_above():
+@skip_py312
+@skip_py313
+def test_inspect_integer_with_methods_python311():
     # to_bytes and from_bytes methods on int had minor signature change -
     # they now, as of 3.11, have default values for all of their parameters
     expected = (
@@ -329,7 +338,6 @@ def test_inspect_integer_with_methods_python311_and_above():
     assert render(1, methods=True) == expected
 
 
-@skip_py37
 @skip_pypy3
 def test_broken_call_attr():
     class NotCallable:

@@ -1,4 +1,4 @@
-[![Supported Python Versions](https://img.shields.io/pypi/pyversions/rich/10.11.0)](https://pypi.org/project/rich/) [![PyPI version](https://badge.fury.io/py/rich.svg)](https://badge.fury.io/py/rich)
+[![Supported Python Versions](https://img.shields.io/pypi/pyversions/rich/13.2.0)](https://pypi.org/project/rich/) [![PyPI version](https://badge.fury.io/py/rich.svg)](https://badge.fury.io/py/rich)
 
 [![Downloads](https://pepy.tech/badge/rich/month)](https://pepy.tech/project/rich)
 [![codecov](https://img.shields.io/codecov/c/github/Textualize/rich?label=codecov&logo=codecov)](https://codecov.io/gh/Textualize/rich)
@@ -24,6 +24,7 @@
  • [Indonesian readme](https://github.com/textualize/rich/blob/master/README.id.md)
  • [فارسی readme](https://github.com/textualize/rich/blob/master/README.fa.md)
  • [Türkçe readme](https://github.com/textualize/rich/blob/master/README.tr.md)
+ • [Polskie readme](https://github.com/textualize/rich/blob/master/README.pl.md)
 
 
 Rich is a Python library for _rich_ text and beautiful formatting in the terminal.
@@ -38,7 +39,7 @@ See what [people are saying about Rich](https://www.willmcgugan.com/blog/pages/p
 
 ## Compatibility
 
-Rich works with Linux, OSX, and Windows. True color / emoji works with new Windows Terminal, classic terminal is limited to 16 colors. Rich requires Python 3.7 or later.
+Rich works with Linux, macOS and Windows. True color / emoji works with new Windows Terminal, classic terminal is limited to 16 colors. Rich requires Python 3.8 or later.
 
 Rich works with [Jupyter notebooks](https://jupyter.org/) with no additional configuration required.
 
@@ -436,11 +437,3 @@ See also [Rich CLI](https://github.com/textualize/rich-cli) for a command line a
 See also Rich's sister project, [Textual](https://github.com/Textualize/textual), which you can use to build sophisticated User Interfaces in the terminal.
 
 ![Textual screenshot](https://raw.githubusercontent.com/Textualize/textual/main/imgs/textual.png)
-
-# Projects using Rich
-
-For some examples of projects using Rich, see the [Rich Gallery](https://www.textualize.io/rich/gallery) on [Textualize.io](https://www.textualize.io).
-
-Would you like to add your own project to the gallery? You can! Follow [these instructions](https://www.textualize.io/gallery-instructions).
-
-<!-- This is a test, no need to translate -->

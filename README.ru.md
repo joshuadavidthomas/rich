@@ -1,4 +1,4 @@
-[![Supported Python Versions](https://img.shields.io/pypi/pyversions/rich/10.11.0)](https://pypi.org/project/rich/) [![PyPI version](https://badge.fury.io/py/rich.svg)](https://badge.fury.io/py/rich)
+[![Supported Python Versions](https://img.shields.io/pypi/pyversions/rich/13.2.0)](https://pypi.org/project/rich/) [![PyPI version](https://badge.fury.io/py/rich.svg)](https://badge.fury.io/py/rich)
 
 [![Downloads](https://pepy.tech/badge/rich/month)](https://pepy.tech/project/rich)
 [![codecov](https://codecov.io/gh/Textualize/rich/branch/master/graph/badge.svg)](https://codecov.io/gh/Textualize/rich)
@@ -23,26 +23,27 @@
  • [Русский readme](https://github.com/textualize/rich/blob/master/README.ru.md)
   • [فارسی readme](https://github.com/textualize/rich/blob/master/README.fa.md)
  • [Türkçe readme](https://github.com/textualize/rich/blob/master/README.tr.md)
+ • [Polskie readme](https://github.com/textualize/rich/blob/master/README.pl.md)
 
 Rich это Python библиотека, позволяющая отображать _красивый_ текст и форматировать терминал.
 
-[Rich API](https://rich.readthedocs.io/en/latest/) упрощает добавление цветов и стилей к выводу терминала. Rich также позволяет отображать красивые таблицы, прогресс бары, markdown, код с отображением синтаксиса, ошибки, и т.д. — прямо после установки.
+[Rich API](https://rich.readthedocs.io/en/latest/) упрощает добавление цветов и стилей к выводу терминала. Rich также позволяет отображать красивые таблицы, прогресс бары, markdown, код с подсветкой синтаксиса, ошибки, и т.д. — прямо после установки.
 
 ![Features](https://github.com/textualize/rich/raw/master/imgs/features.png)
 
-Для видеоинструкции смотрите [calmcode.io](https://calmcode.io/rich/introduction.html) от [@fishnets88](https://twitter.com/fishnets88).
+Смотрите видеоинструкцию  [calmcode.io](https://calmcode.io/rich/introduction.html) от [@fishnets88](https://twitter.com/fishnets88).
 
 Посмотрите [что люди думают о Rich](https://www.willmcgugan.com/blog/pages/post/rich-tweets/).
 
 ## Cовместимость
 
-Rich работает с Linux, OSX, и Windows. True color / эмоджи работают с новым терминалом Windows, классический терминал лимитирован 16 цветами. Rich требует Python 3.6.3 или более новый.
+Rich работает с Linux, OSX и Windows. True color / эмоджи работают с новым терминалом Windows, классический терминал лимитирован 16 цветами. Rich требует Python 3.6.3 или более новый.
 
 Rich работает с [Jupyter notebooks](https://jupyter.org/) без дополнительной конфигурации.
 
 ## Установка
 
-Установите с `pip` или вашим любимым PyPI менеджером пакетов.
+Установите с помощью `pip` или вашего любимого PyPI менеджера пакетов.
 
 ```sh
 python -m pip install rich
@@ -56,7 +57,7 @@ python -m rich
 
 ## Rich Print
 
-Простейший способ получить красивый вывод это импортировать метод [rich print](https://rich.readthedocs.io/en/latest/introduction.html#quick-start), он принимает такие же аргументы что и стандартный метод print. Попробуйте:
+Простейший способ получить красивый вывод это импортировать метод [rich print](https://rich.readthedocs.io/en/latest/introduction.html#quick-start), он принимает такие же аргументы что и стандартный метод `print`. Попробуйте:
 
 ```python
 from rich import print
@@ -87,13 +88,13 @@ from rich.console import Console
 console = Console()
 ```
 
-У класса console есть метод `print` который имеет идентичный функционал к встроеной функции `print`. Вот пример использования:
+У класса Сonsole есть метод `print` который имеет идентичный встроенной функции функционал `print`. Вот пример использования:
 
 ```python
 console.print("Hello", "World!")
 ```
 
-Как вы могли подумать, этот выведет `"Hello World!"` в терминал. Запомните что, в отличии от встроеной функции `print`, Rich увеличит ваш текст так, чтобы он распространялся на всю ширину терминала.
+Как вы могли догадаться, это выведет `Hello World!` в терминал. Запомните что, в отличии от встроенной функции `print`, Rich настроит переносы слов так, чтобы ваш текст соответствовал ширине терминала.
 
 Есть несколько способов добавить цвет и стиль к вашему выводу. Вы можете выбрать стиль для всего вывода добавив аргумент `style`. Вот пример:
 
@@ -101,11 +102,11 @@ console.print("Hello", "World!")
 console.print("Hello", "World!", style="bold red")
 ```
 
-Вывод будет выглядить примерно так:
+Вывод будет выглядеть примерно так:
 
 ![Hello World](https://github.com/textualize/rich/raw/master/imgs/hello_world.png)
 
-Этого достаточно чтобы стилизовать 1 строку. Для более детального стилизования, Rich использует специальную разметку похожую по синтаксису на [bbcode](https://en.wikipedia.org/wiki/BBCode). Вот пример:
+Этого достаточно чтобы стилизовать 1 строку. Для более детальной стилизации, Rich использует специальную разметку похожую по синтаксису на [bbcode](https://en.wikipedia.org/wiki/BBCode). Вот пример:
 
 ```python
 console.print("Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i]way[/i].")
@@ -113,11 +114,11 @@ console.print("Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i
 
 ![Console Markup](https://github.com/textualize/rich/raw/master/imgs/where_there_is_a_will.png)
 
-Вы можете использовать класс Console чтобы генерировать утонченный вывод с минимальными усилиями. Смотрите [документацию Console API](https://rich.readthedocs.io/en/latest/console.html) для детального объяснения.
+Вы можете использовать класс Console чтобы генерировать красивый вывод с минимальными усилиями. Для получения детальной информации смотрите [документацию Console API](https://rich.readthedocs.io/en/latest/console.html).
 
 ## Rich Inspect
 
-В Rich есть функция [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) которая может украсить любой Python объект, например класс, переменная, или функция.
+В Rich имеется функция [inspect](https://rich.readthedocs.io/en/latest/reference/init.html?highlight=inspect#rich.inspect) которая может украсить любой Python объект, например класс, переменную, или функцию.
 
 ```python
 >>> my_list = ["foo", "bar"]
@@ -127,18 +128,18 @@ console.print("Where there is a [bold cyan]Will[/bold cyan] there [u]is[/u] a [i
 
 ![Log](https://github.com/textualize/rich/raw/master/imgs/inspect.png)
 
-Смотрите [документацию inspect](https://rich.readthedocs.io/en/latest/reference/init.html#rich.inspect) для детального объяснения.
+Для получения детальной информации смотрите [документацию inspect](https://rich.readthedocs.io/en/latest/reference/init.html#rich.inspect).
 
 # Библиотека Rich
 
-Rich содержит несколько встроенных _визуализаций_ которые вы можете использовать чтобы сделать элегантный вывод в важем CLI или помочь в дебаггинге кода.
+Rich содержит несколько встроенных _визуализаций_ которые вы можете использовать чтобы сделать красивый вывод в вашем CLI, а также они помогают в отладке кода.
 
 Вот несколько вещей которые может делать Rich (нажмите чтобы узнать больше):
 
 <details>
 <summary>Лог</summary>
 
-В классе console есть метод `log()` который похож на `print()`, но также изображает столбец для текущего времени, файла и линии кода которая вызвала метод. По умолчанию Rich будет подсвечивать синтаксис для структур Python и для строк repr. Если вы передадите в метод коллекцию (т.е. dict или list) Rich выведет её так, чтобы она помещалась в доступном месте. Вот пример использования этого метода.
+В классе Сonsole есть метод `log()` который имеет интерфейс, аналогичный `print()`, но также отображает колонку текущим временем, именем файла и номером строки кода в которой был вызван метод. По умолчанию Rich будет подсвечивать синтаксис для структур Python и для строк repr. Если вы передадите в метод коллекцию (т.е. dict или list) Rich выведет её так, чтобы она разместилась в доступном пространстве. Вот пример использования этого метода.
 
 ```python
 from rich.console import Console
@@ -163,13 +164,14 @@ def test_log():
 test_log()
 ```
 
-Код выше выведет это:
+Приведенный выше код выведет это:
 
 ![Log](https://github.com/textualize/rich/raw/master/imgs/log.png)
 
-Запомните аргумент `log_locals`, он выводит таблицу имеющую локальные переменные функции в которой метод был вызван.
 
-Метод может быть использован для вывода данных в терминал в длинно-работающих программ, таких как сервера, но он также может помочь в дебаггинге.
+Обратите внимание на аргумент `log_locals`, который выводит таблицу, содержащую локальные переменные функции, в которой был вызван метод log.
+
+Метод может быть использован для вывода данных в терминал в длительно работающих программ, таких как сервера, но он также может помочь в отладке.
 
 </details>
 <details>
@@ -184,25 +186,25 @@ test_log()
 <details>
 <summary>Эмоджи</summary>
 
-Чтобы вставить эмоджи в вывод консоли поместите название между двумя двоеточиями. Вот пример:
+Чтобы вставить эмоджи в вывод консоли, поместите его название между двумя двоеточиями. Вот пример:
 
 ```python
 >>> console.print(":smiley: :vampire: :pile_of_poo: :thumbs_up: :raccoon:")
 😃 🧛 💩 👍 🦝
 ```
 
-Пожалуйста, используйте это мудро.
+Пожалуйста, используйте эту функцию с умом.
 
 </details>
 
 <details>
 <summary>Таблицы</summary>
 
-Rich может отображать гибкие [таблицы](https://rich.readthedocs.io/en/latest/tables.html) с символами unicode. Есть большое количество форматов границ, стилей, выравниваний ячеек и т.п.
+Rich может отображать гибкие настраиваемые [таблицы](https://rich.readthedocs.io/en/latest/tables.html) с помощью символов unicode. Есть большое количество вариантов границ, стилей, выравниваний ячеек и т.п.
 
 ![table movie](https://github.com/textualize/rich/raw/master/imgs/table_movie.gif)
 
-Эта анимация была сгенерирована с помощью [table_movie.py](https://github.com/textualize/rich/blob/master/examples/table_movie.py) в директории примеров.
+Эта анимация была сгенерирована с помощью [table_movie.py](https://github.com/textualize/rich/blob/master/examples/table_movie.py) в папке примеров.
 
 Вот пример более простой таблицы:
 
@@ -240,7 +242,7 @@ console.print(table)
 
 ![table](https://github.com/textualize/rich/raw/master/imgs/table.png)
 
-Запомните что разметка консоли отображается таким же способом что и `print()` и `log()`. На самом деле, всё, что может отобразить Rich может быть в заголовках или рядах (даже другие таблицы).
+Обратите внимание, что разметка осуществляется таким же способом, что и `print()` и `log()`. На самом деле, все, что может быть отображено Rich, может быть включено в заголовки / строки (даже в другие таблицы).
 
 Класс `Table` достаточно умный чтобы менять размер столбцов, так, чтобы они заполняли доступную ширину терминала, обёртывая текст как нужно. Вот тот же самый пример с терминалом меньше таблицы:
 
@@ -253,7 +255,7 @@ console.print(table)
 
 Rich может отображать несколько плавных [прогресс](https://rich.readthedocs.io/en/latest/progress.html) баров чтобы отслеживать долго-идущие задания.
 
-Для базового использования, оберните любую последовательность в функции `track` и переберите результат. Вот пример:
+Для базового использования, оберните любую последовательность в функцию `track` и выполните итерации по результату. Вот пример:
 
 ```python
 from rich.progress import track
@@ -262,22 +264,22 @@ for step in track(range(100)):
     do_step(step)
 ```
 
-Отслеживать больше чем 1 задание не сложнее. Вот пример взятый из документации:
+Добавить несколько индикаторов выполнения не намного сложнее. Вот пример взятый из документации:
 
 ![progress](https://github.com/textualize/rich/raw/master/imgs/progress.gif)
 
-Столбцы могут быть настроены чтобы показывать любые детали. Стандартные столбцы содержат проценты исполнения, размер файлы, скорость файла, и оставшееся время. Вот ещё пример показывающий загрузку в прогрессе:
+Столбцы могут быть сконфигурированы таким образом, чтобы отображать любые сведения, которые вы хотите. Стандартные столбцы содержат проценты выполнения, размер файлы, скорость файла и оставшееся время. Вот ещё пример показывающий прогресс загрузки:
 
 ![progress](https://github.com/textualize/rich/raw/master/imgs/downloader.gif)
 
-Чтобы попробовать самому, скачайте [examples/downloader.py](https://github.com/textualize/rich/blob/master/examples/downloader.py) который может скачать несколько URL одновременно пока отображая прогресс.
+Чтобы попробовать самому, скачайте [examples/downloader.py](https://github.com/textualize/rich/blob/master/examples/downloader.py), который может загружать несколько URL-адресов одновременно, отображая прогресс.
 
 </details>
 
 <details>
 <summary>Статус</summary>
 
-Для ситуаций где сложно высчитать прогресс, вы можете использовать метод [статус](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console.status) который будет отображать крутящуюся анимацию и сообщение. Анимация не перекроет вам доступ к консоли. Вот пример:
+Для ситуаций где сложно вычислить прогресс, вы можете использовать метод [статус](https://rich.readthedocs.io/en/latest/reference/console.html#rich.console.Console.status) который будет отображать крутящуюся анимацию и сообщение. Анимация не помешает вам использовать консоль в обычном режиме. Вот пример:
 
 ```python
 from time import sleep
@@ -293,17 +295,17 @@ with console.status("[bold green]Working on tasks...") as status:
         console.log(f"{task} complete")
 ```
 
-Это генерирует вот такой вывод в консоль.
+Это сгенерирует вот такой вывод в консоль.
 
 ![status](https://github.com/textualize/rich/raw/master/imgs/status.gif)
 
-Крутящиеся анимации были взяты из [cli-spinners](https://www.npmjs.com/package/cli-spinners). Вы можете выбрать одну из них указав параметр `spinner`. Запустите следующую команду чтобы узнать доступные анимации:
+Крутящиеся анимации были взяты из [cli-spinners](https://www.npmjs.com/package/cli-spinners). Вы можете выбрать одну из них указав параметр `spinner`. Введите следующую команду чтобы посмотреть доступные анимации:
 
 ```
 python -m rich.spinner
 ```
 
-Эта команда выдаёт вот такой вывод в терминал:
+Приведенная выше команда сгенерирует следующий вывод в терминале:
 
 ![spinners](https://github.com/textualize/rich/raw/master/imgs/spinners.gif)
 
@@ -312,9 +314,9 @@ python -m rich.spinner
 <details>
 <summary>Дерево</summary>
 
-Rich может отобразить [дерево](https://rich.readthedocs.io/en/latest/tree.html) с указаниями. Дерево идеально подходит для отображения структуры файлов или любых других иерархических данных.
+Rich может отобразить [дерево](https://rich.readthedocs.io/en/latest/tree.html) с направляющими уровнями. Дерево идеально подходит для отображения структуры файлов или любых других иерархических данных.
 
-Ярлыки дерева могут быть простым текстом или любой другой вещью Rich может отобразить. Запустите следующую команду для демонстрации:
+Метки дерева могут быть содержать простой текст или чем-либо еще, что может отобразить Rich. Запустите следующую команду для демонстрации:
 
 ```
 python -m rich.tree
@@ -324,14 +326,14 @@ python -m rich.tree
 
 ![markdown](https://github.com/textualize/rich/raw/master/imgs/tree.png)
 
-Смотрите пример [tree.py](https://github.com/textualize/rich/blob/master/examples/tree.py) для скрипта который отображает дерево любой директории, похоже на команду linux `tree`.
+Смотрите пример [tree.py](https://github.com/textualize/rich/blob/master/examples/tree.py) скрипта,который отображает древовидное представление любого каталога, аналогично команде linux `tree`.
 
 </details>
 
 <details>
-<summary>Столбцы</summary>
+<summary>Колонки</summary>
 
-Rich может отображать контент в [столбцах](https://rich.readthedocs.io/en/latest/columns.html) с равной или оптимальной шириной. Вот очень простой пример клона команды `ls` (MacOS / Linux) который отображает a файлы директории в столбцах:
+Rich может отображать контент в аккуратных [колонках](https://rich.readthedocs.io/en/latest/columns.html) с равной или оптимальной шириной. Вот очень простой пример клона команды `ls` (MacOS / Linux) который отображает список файлов из папки в виде колонок:
 
 ```python
 import os
@@ -344,7 +346,7 @@ directory = os.listdir(sys.argv[1])
 print(Columns(directory))
 ```
 
-Следующий скриншот это вывод из [примера столбцов](https://github.com/textualize/rich/blob/master/examples/columns.py) который изображает данные взятые из API в столбцах:
+Следующий снимок экрана является [примером колонок](https://github.com/textualize/rich/blob/master/examples/columns.py) который изображает данные взятые из API в столбцах:
 
 ![columns](https://github.com/textualize/rich/raw/master/imgs/columns.png)
 
@@ -353,9 +355,9 @@ print(Columns(directory))
 <details>
 <summary>Markdown</summary>
 
-Rich может отображать [markdown](https://rich.readthedocs.io/en/latest/markdown.html) и делает неплохую работу в форматировании под терминал.
+Rich может отображать [markdown](https://rich.readthedocs.io/en/latest/markdown.html), проделывая неплохую работу в форматировании под терминал.
 
-Чтобы отобразить markdown импортируйте класс `Markdown` и инициализируйте его с помощью строки содержащей код markdown. После чего выведите его в консоль. Вот пример:
+Чтобы отобразить markdown импортируйте класс `Markdown` и инициализируйте его с помощью строки содержащей код markdown. Затем распечатайте его в консоли. Вот пример:
 
 ```python
 from rich.console import Console
@@ -374,9 +376,9 @@ console.print(markdown)
 </details>
 
 <details>
-<summary>Подсвечивание Синтаксиса</summary>
+<summary>Подсветка синтаксиса</summary>
 
-Rich использует библиотеку [pygments](https://pygments.org/) чтобы имплементировать [подсвечивание синтаксиса](https://rich.readthedocs.io/en/latest/syntax.html). Использование похоже на отображение markdown; инициализируйте класс `Syntax` и выводите его в консоль. Вот пример:
+Rich использует библиотеку [pygments](https://pygments.org/) чтобы выполнить [подсветку синтаксиса](https://rich.readthedocs.io/en/latest/syntax.html). Использование аналогично рендерингу markdown; создайте объект `Syntax` и выведите его на консоль. Вот пример:
 
 ```python
 from rich.console import Console
@@ -411,7 +413,7 @@ console.print(syntax)
 <details>
 <summary>Ошибки</summary>
 
-Rich может отображать [красивые ошибки](https://rich.readthedocs.io/en/latest/traceback.html) которые проще читать и показывают больше кода чем стандартные ошибки Python. Вы можете установить Rich как стандартный обработчик ошибок чтобы все непойманные ошибки отображал Rich.
+Rich может отображать [красивый стек ошибок](https://rich.readthedocs.io/en/latest/traceback.html), который проще читать, и показывает больше информации чем стандартные стек ошибок Python. Вы можете установить Rich как стандартный обработчик ошибок чтобы все не перехваченные исключения отображались Rich.
 
 Вот как это выглядит на OSX (похоже на Linux):
 
@@ -419,17 +421,28 @@ Rich может отображать [красивые ошибки](https://ric
 
 </details>
 
-Все визуализации Rich используют [протокол Console](https://rich.readthedocs.io/en/latest/protocol.html), который также позволяет вам добавлять свой Rich контент.
+Все визуализации Rich используют [протокол Console](https://rich.readthedocs.io/en/latest/protocol.html), который позволяет вам добавлять свой собственный Rich контент.
+
+# Rich CLI
+
+Смотрите также [Rich CLI](https://github.com/textualize/rich-cli) для получения информации о приложении командной строки, работающего на базе Rich. Подсветка синтаксиса кода, рендеринг markdown, отображение CSV-файлов в таблицах и многое другое доступно непосредственно из командной строки.
+
+
+![Rich CLI](https://raw.githubusercontent.com/Textualize/rich-cli/main/imgs/rich-cli-splash.jpg)
+
+# Textual
+
+Смотрите также дочерний проект Rich, [Textual](https://github.com/Textualize/textual), который вы можете использовать для создания сложных пользовательских интерфейсов в терминале.
 
 # Rich для предприятий
 
 Rich доступен как часть подписки Tidelift.
 
-Поддержатели проекта Rich и тысячи других работают над подпиской Tidelift чтобы предоставить коммерческую поддержку и поддержание для проектов с открытым кодом вы используете чтобы построить своё приложение. Сохраните время, избавьтесь от риска, и улучшите состояние кода, пока вы платите поддержателям проектов вы используете. [Узнайте больше.](https://tidelift.com/subscription/pkg/pypi-rich?utm_source=pypi-rich&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
+Ментейнеры проекта Rich, как и тысячи других разработчиков работают с подпиской Tidelift чтобы предоставить коммерческую поддержку и поддержку для проектов с открытым кодом, которые вы используете для создания своих приложений. Экономьте время, устраняйте риски и улучшайте состояние вашего кода, одновременно платя спонсорам проектов, которые вы используете. [Узнайте больше.](https://tidelift.com/subscription/pkg/pypi-rich?utm_source=pypi-rich&utm_medium=referral&utm_campaign=enterprise&utm_term=repo)
 
 # Проекты использующие Rich
 
-Вот пару проектов использующих Rich:
+Вот несколько проектов использующих Rich:
 
 - [BrancoLab/BrainRender](https://github.com/BrancoLab/BrainRender)
   библиотека Python для визуализации нейроанатомических данных в 3 измерениях
@@ -440,7 +453,7 @@ Rich доступен как часть подписки Tidelift.
 - [hedythedev/StarCli](https://github.com/hedythedev/starcli)
   Просматривайте трендовые проекты GitHub прямо из вашего терминала
 - [intel/cve-bin-tool](https://github.com/intel/cve-bin-tool)
-  Эта утилита сканирует известные уязвимости (openssl, libpng, libxml2, expat and a few others) чтобы уведомить вас если ваша система использует библиотеки с известными уязвимостями.
+  Эта утилита сканирует известные уязвимости (openssl, libpng, libxml2, expat and a few others) чтобы уведомить вас, если ваша система использует библиотеки с известными уязвимостями.
 - [nf-core/tools](https://github.com/nf-core/tools)
   Библиотека Python с полезными инструментами для сообщества nf-core.
 - [cansarigol/pdbr](https://github.com/cansarigol/pdbr)
